@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page, Accessible Vision Society</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to main content</a>
+    <header>
+        <button id="navBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+        <nav id="navMenu" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="announcements/announcements.html">Announcements</a></li>
+                <li><a href="menu/about.html">About Us</a></li>
+                <li><a href="menu/contact.html">Contact Us</a></li>
+                <li><a href="menu/join.html">Join Us</a></li>
+                <li><a href="menu/donate_us.html">Donate Us</a></li>
+                <li><a href="menu/privacy.html">Privacy Policy</a></li>
+                <li><a href="menu/terms.html">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <h1>Accessible Vision Society</h1>
+        <p id="tagline"><q>Vision Through Accessibility</q></p>
+        <div class="greetingBox">
+            <p id="greeting"></p>
+            <p id="date"></p>
+            <p id="time"></p>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="hero">
+            <h2>Empowering through Accessibility</h2>
+            <p>We are dedicated to creating a world where everyone, regardless of their visual abilities, has equal access to information, education, and opportunities.</p>
+            <div class="cta-buttons">
+                <a href="courses.html" class="btn-primary">Explore Courses</a>
+                <a href="menu/donate_us.html" class="btn-secondary">Support Us</a>
+            </div>
+        </section>
+
+        <section class="services">
+            <h3>Our Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h4>Computer Training</h4>
+                    <p>Learn to use computers effectively with screen readers like NVDA and JAWS.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h4>Mobile Accessibility</h4>
+                    <p>Master your smartphone using TalkBack or VoiceOver.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h4>Web Accessibility</h4>
+                    <p>Building and promoting accessible digital experiences for all.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="announcements-preview">
+            <h3>Latest Announcements</h3>
+            <div class="announcement-card">
+                <span class="date-badge">New</span>
+                <h4>Welcome to AVS</h4>
+                <p>Welcome to our new website! We are excited to launch this platform to better serve our community.</p>
+                <a href="announcements.html">Read More &rarr;</a>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h3>What Our Students Say</h3>
+            <div class="testimonial-slider">
+                <blockquote>
+                    <p>"The courses here have completely changed how I interact with technology. I feel much more independent now."</p>
+                    <cite>— Rahul Sharma, Student</cite>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h3>Quick Links</h3>
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="announcements/announcements.html">Announcements</a></li>
+                    <li><a href="menu/about.html">About Us</a></li>
+                    <li><a href="menu/contact.html">Contact Us</a></li>
+                    <li><a href="menu/privacy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer-about">
+            <p>Empowering visually impaired individuals through technology and education. <a href="menu/donate_us.html" class="donate-link">Support our mission by donating.</a></p>
+        </div>
+
+        <div class="footer-social">
+            <h4>Connect with us</h4>
+            <div class="social-links">
+                <a href="https://youtube.com/@accessiblevisionsociety" target="_blank" class="social-icon youtube" aria-label="YouTube Channel">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://whatsapp.com/channel/0029Vaeb20wHQbRyMHnKW61e" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp Channel">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <p class="copyright">© 2026–<script>document.write(new Date().getFullYear());</script> Accessible Vision Society. All rights reserved.<br>Designed with accessibility and inclusion in mind.</p>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+    <script src="script.js"></script>
+    <script src="firebase.js"></script>
+</body>
+
+</html>

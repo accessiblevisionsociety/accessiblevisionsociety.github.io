@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Accessible Vision Society</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" id="skip-link">Skip to main content</a>
+    <header>
+        <button id="navBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+        <nav id="navMenu" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../courses.html">Courses</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+                <li><a href="../menu/about.html">About Us</a></li>
+                <li><a href="../menu/contact.html">Contact Us</a></li>
+                <li><a href="../menu/join.html">Join Us</a></li>
+                <li><a href="../menu/donate_us.html">Donate Us</a></li>
+                <li><a href="../menu/privacy.html">Privacy Policy</a></li>
+                <li><a href="../menu/terms.html">Terms and Conditions</a></li>
+                <li style="margin-top: 10px; border-top: 1px solid #06B6D4; padding-top: 10px;">
+                    <a href="authorize.html" style="color: #F59E0B;"><i class="fas fa-user-shield"></i> Admin Panel</a>
+                </li>
+            </ul>
+        </nav>
+        <h1>Accessible Vision Society</h1>
+        <p id="tagline"><q>Vision Through Accessibility</q></p>
+    </header>
+    <main id="main-content">
+        <h2>Announcements</h2>
+        <div id="announcementsBox">
+            <!-- all announcements will be displayed here -->
+        </div>
+        <div class="pagination">
+            <button id="prevBtn">Previous page</button>
+            <button id="nextBtn">Next page</button>
+        </div>
+</main>
+    <footer>
+        <div class="footer-content">
+            <h3>Quick Links</h3>
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../courses.html">Courses</a></li>
+                    <li><a href="announcements.html">Announcements</a></li>
+                    <li><a href="../menu/about.html">About Us</a></li>
+                    <li><a href="../menu/contact.html">Contact Us</a></li>
+                    <li><a href="../menu/privacy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer-about">
+            <p>Empowering visually impaired individuals through technology and education. <a href="../menu/donate_us.html" class="donate-link">Support our mission by donating.</a></p>
+        </div>
+
+        <div class="footer-social">
+            <h4>Connect with us</h4>
+            <div class="social-links">
+                <a href="https://youtube.com/@accessiblevisionsociety" target="_blank" class="social-icon youtube" aria-label="YouTube Channel">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://whatsapp.com/channel/0029Vaeb20wHQbRyMHnKW61e" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp Channel">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <p class="copyright">© 2026–<script>document.write(new Date().getFullYear());</script> Accessible Vision Society. All rights reserved.<br>Designed with accessibility and inclusion in mind.</p>
+    </footer>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script src="../script.js"></script>
+    <script src="../firebase.js"></script>
+    <script src="announcements.js"></script>
+</body>
+</html>

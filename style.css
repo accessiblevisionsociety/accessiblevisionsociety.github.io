@@ -80,6 +80,16 @@ header{
     color: var(--text-light);
 }
 
+.header-logo {
+    max-width: 150px;
+    height: auto;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-md);
+    display: inline-block;
+}
+
 header h1{
     font-size: 2.2rem;
     font-weight: 800;
@@ -404,31 +414,52 @@ button, .btn-primary, .btn-secondary, .donate-btn{
 /* Testimonials */
 .testimonials {
     margin: 5rem 0;
-    text-align: center;
 }
 
-.testimonial-slider {
-    background-color: var(--bg-card);
-    padding: 4rem 2rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    max-width: 850px;
+.testimonials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 900px;
     margin: 0 auto;
+    text-align: left;
+}
+
+.testimonial-item {
+    background-color: var(--bg-card);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 8px solid var(--primary);
+}
+
+.testimonial-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 blockquote p {
-    font-size: 1.3rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
     font-style: italic;
     color: var(--text-muted);
+}
+
+blockquote p:last-of-type {
+    margin-bottom: 2rem;
 }
 
 cite {
     font-style: normal;
     font-weight: 800;
     color: var(--primary);
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+    display: block;
+    text-align: right;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
 }
 
 /* Contact & Donation Pages */
@@ -585,6 +616,18 @@ footer{
     border-top: 1px solid rgba(255,255,255,0.1);
     font-size: 0.95rem;
     opacity: 0.6;
+}
+
+.developer-credit {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--secondary);
+    opacity: 0.9;
+}
+
+.developer-credit strong {
+    color: var(--text-light);
 }
 
 /* About Page & Content Layouts */
@@ -755,42 +798,11 @@ footer{
 
 /* Impact Stats */
 .impact-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    margin: 4rem 0;
-    text-align: center;
-}
-
-.stat-item {
-    background: var(--bg-card);
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
-    border-bottom: 6px solid var(--primary);
-    transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.stat-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
+    margin: 3rem 0;
     font-size: 1.1rem;
-    font-weight: 700;
     color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
+
 
 /* Why Choose Us Section */
 .why-us-grid {
@@ -839,6 +851,28 @@ footer{
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.qr-section {
+    text-align: center;
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-section .photo-slot {
+    max-width: 320px;
+    background: white;
+    padding: 1rem;
+    border: 1px solid var(--border);
+}
+
+.qr-caption {
+    margin-top: 1.25rem;
+    font-weight: 700;
+    color: var(--bg-dark);
+    font-size: 1.1rem;
 }
 
 /* Animations */

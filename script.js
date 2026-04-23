@@ -134,4 +134,43 @@ document.addEventListener('DOMContentLoaded', function() {
         updateDateTime();
         setInterval(updateDateTime, 60000); // Update every minute
     }
+
+    // Latest Announcement Fetching for Home Page
+    const latestAnnouncementContainer = document.getElementById('latest-announcement-container');
+    const latestAnnouncementSection = document.getElementById('latest-announcement-section');
+
+    if (latestAnnouncementContainer && latestAnnouncementSection && typeof announcementsRef !== 'undefined') {
+        announcementsRef.orderByChild('createdAt').limitToLast(1).on('value', (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                // snapshot.val() returns an object with keys. With limitToLast(1), it should have one key.
+                const keys = Object.keys(data);
+                const announcement = data[keys[0]];
+                
+                // Truncate content for preview and handle potential HTML/newlines
+                let previewContent = announcement.content;
+                // Simple strip of HTML tags if any (though usually it's just text)
+                previewContent = previewContent.replace(/<[^>]*>?/gm, '');
+                
+                if (previewContent.length > 200) {
+                    previewContent = previewContent.substring(0, 200) + '...';
+                }
+
+                latestAnnouncementContainer.innerHTML = `
+                    <div class="announcement-card">
+                        <span class="date-badge">${announcement.date}</span>
+                        <h4>${announcement.title}</h4>
+                        <p>${previewContent}</p>
+                        <a href="announcements/announcements.html">Read Full Announcement <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+                    </div>
+                `;
+                latestAnnouncementSection.style.display = 'block';
+            } else {
+                latestAnnouncementSection.style.display = 'none';
+            }
+        }, (error) => {
+            console.error("Error fetching latest announcement:", error);
+            latestAnnouncementSection.style.display = 'none';
+        });
+    }
 });

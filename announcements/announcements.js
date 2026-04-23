@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     announcementsBox = document.getElementById('announcementsBox');
     if (!announcementsBox) return;
 
+    // Show loader
+    announcementsBox.innerHTML = `
+        <div class="loader-container">
+            <div class="spinner"></div>
+            <p>Loading announcements...</p>
+        </div>
+    `;
+
     announcementsRef.on('value', (snapshot) => {
         const announcements = snapshot.val();
         if (announcements) {

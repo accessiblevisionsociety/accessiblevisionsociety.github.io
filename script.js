@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.style.display = "none";
             overlay.classList.remove('active');
             navBtn.setAttribute('aria-expanded', "false");
-            // Change aria-label to indicate the button now opens the menu
             navBtn.setAttribute('aria-label', 'Open navigation drawer');
             navBtn.innerHTML = '☰';
             document.body.style.overflow = '';
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.style.display = "flex";
             overlay.classList.add('active');
             navBtn.setAttribute('aria-expanded', "true");
-            // Change aria-label to indicate the button now closes the menu
             navBtn.setAttribute('aria-label', 'Close navigation drawer');
             navBtn.innerHTML = '✕';
             document.body.style.overflow = 'hidden';

@@ -9,6 +9,10 @@
 </head>
 <body>
     <header>
+        <div id="theme-announcer" class="sr-only" aria-live="polite"></div>
+        <button id="themeToggle" aria-label="Toggle dark mode" title="Toggle between dark and light mode">
+            <i class="fas fa-moon"></i>
+        </button>
         <img src="../images/logo.jpg" alt="Accessible Vision Society Logo" class="header-logo">
         <h1>Accessible Vision Society</h1>
         <p id="tagline"><q>Admin Portal</q></p>
@@ -74,6 +78,7 @@
         <p class="copyright">© 2026–<script>document.write(new Date().getFullYear());</script> Accessible Vision Society. All rights reserved.<br>Designed with accessibility and inclusion in mind.</p>
     </footer>
 
+    <script src="../script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="../firebase.js"></script>

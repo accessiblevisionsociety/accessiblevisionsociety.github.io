@@ -22,7 +22,11 @@
 <body>
     <a href="#main-content" id="skip-link">Skip to main content</a>
     <header>
+        <div id="theme-announcer" class="sr-only" aria-live="polite"></div>
         <button id="navBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+        <button id="themeToggle" aria-label="Toggle dark mode" title="Toggle between dark and light mode">
+            <i class="fas fa-moon"></i>
+        </button>
         <nav id="navMenu" role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="../index.html">Home</a></li>

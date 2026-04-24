@@ -1,35 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // --- Navigation Menu Logic ---
     const navBtn = document.getElementById('navBtn');
     const navMenu = document.getElementById('navMenu');
     
-    // Create overlay dynamically
     const overlay = document.createElement('div');
     overlay.id = 'navOverlay';
     overlay.className = 'nav-overlay';
     document.body.appendChild(overlay);
 
     function toggleMenu() {
-        // Use getComputedStyle to check actual display state
         const isVisible = window.getComputedStyle(navMenu).display === "flex";
-        
         if (isVisible) {
-            // Close menu
             navMenu.style.display = "none";
             overlay.classList.remove('active');
             navBtn.setAttribute('aria-expanded', "false");
-            navBtn.setAttribute('aria-label', "Open navigation menu");
             navBtn.innerHTML = '☰';
-            document.body.style.overflow = ''; // Restore scroll
+            document.body.style.overflow = '';
         } else {
-            // Open menu
             navMenu.style.display = "flex";
             overlay.classList.add('active');
             navBtn.setAttribute('aria-expanded', "true");
-            navBtn.setAttribute('aria-label', "Close navigation menu");
             navBtn.innerHTML = '✕';
-            document.body.style.overflow = 'hidden'; // Prevent scroll
-            
-            // Focus first link in menu for accessibility
+            document.body.style.overflow = 'hidden';
             const firstLink = navMenu.querySelector('a');
             if (firstLink) firstLink.focus();
         }
@@ -38,139 +30,111 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navBtn && navMenu) {
         navBtn.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
-
-        // Close menu on Esc key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && window.getComputedStyle(navMenu).display === "flex") {
-                toggleMenu();
-            }
-        });
-
-        // Focus trapping
-        navMenu.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                const focusableItems = navMenu.querySelectorAll('a, button');
-                const firstItem = focusableItems[0];
-                const lastItem = focusableItems[focusableItems.length - 1];
-
-                if (e.shiftKey) { // Shift + Tab
-                    if (document.activeElement === firstItem) {
-                        e.preventDefault();
-                        lastItem.focus();
-                    }
-                } else { // Tab
-                    if (document.activeElement === lastItem) {
-                        e.preventDefault();
-                        firstItem.focus();
-                    }
-                }
-            }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && window.getComputedStyle(navMenu).display === "flex") toggleMenu();
         });
     }
 
-    // Active Link Highlighting
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('#navMenu a');
+    // --- Dark Mode Logic ---
+    const themeToggle = document.getElementById('themeToggle');
+    const themeAnnouncer = document.getElementById('theme-announcer');
     
-    // Normalize path to get filename
-    let pathFilename = currentPath.split('/').pop() || 'index.html';
-    if (pathFilename === '' || pathFilename === '/') pathFilename = 'index.html';
+    function setTheme(theme, shouldAnnounce = true) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (themeToggle) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                themeToggle.setAttribute('aria-label', 'Switch to light mode');
+            }
+            if (shouldAnnounce && themeAnnouncer) {
+                themeAnnouncer.textContent = 'Dark mode activated';
+                setTimeout(() => { themeAnnouncer.textContent = ''; }, 2000);
+            }
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.remove('dark-mode');
+            if (themeToggle) {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+            }
+            if (shouldAnnounce && themeAnnouncer) {
+                themeAnnouncer.textContent = 'Light mode activated';
+                setTimeout(() => { themeAnnouncer.textContent = ''; }, 2000);
+            }
+            localStorage.setItem('theme', 'light');
+        }
+    }
 
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (!href) return;
-        
-        // Extract filename from href (handles ../path/file.html)
-        const hrefFilename = href.split('/').pop();
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        if (hrefFilename === pathFilename) {
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        setTheme('dark', false);
+    } else {
+        setTheme('light', false);
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.classList.contains('dark-mode');
+            setTheme(isDark ? 'light' : 'dark');
+        });
+    }
+
+    // --- Active Link Highlighting ---
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('#navMenu a').forEach(link => {
+        if (link.getAttribute('href').split('/').pop() === currentPath) {
             link.classList.add('active-link');
             link.setAttribute('aria-current', 'page');
         }
     });
 
-    // for greeting message and date display
+    // --- Greeting & Clock ---
     const greeting = document.getElementById('greeting');
     const dateElement = document.getElementById('date');
     const timeElement = document.getElementById('time');
 
     if (greeting || dateElement || timeElement) {
         function updateDateTime() {
-            let today = new Date();
-            let greetingMessage = '';
-            const hours = today.getHours();
-
-            if (hours < 12) {
-                greetingMessage = 'Good Morning Visitor!';
-            } else if (hours < 18) {
-                greetingMessage = 'Good Afternoon Visitor!';
-            } else if (hours < 21) {
-                greetingMessage = 'Good Evening Visitor!';
-            } else {
-                greetingMessage = 'Good Night Visitor!';
-            }
+            const now = new Date();
+            const hours = now.getHours();
+            let msg = 'Good Evening Visitor!';
+            if (hours < 12) msg = 'Good Morning Visitor!';
+            else if (hours < 18) msg = 'Good Afternoon Visitor!';
+            else if (hours >= 21) msg = 'Good Night Visitor!';
             
-            if (greeting) greeting.textContent = greetingMessage;
-
-            if (dateElement) {
-                let date = "Today is: " + today.toLocaleDateString("en-US", {
-                    weekday: "long",
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric"
-                });
-                dateElement.textContent = date;
-            }
-
-            if (timeElement) {
-                let timeString = today.toLocaleTimeString("en-US", {
-                    hour: "numeric",
-                    minute: "numeric",
-                    hour12: true
-                });
-                timeElement.textContent = timeString;
-            }
+            if (greeting) greeting.textContent = msg;
+            if (dateElement) dateElement.textContent = "Today is: " + now.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+            if (timeElement) timeElement.textContent = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
         }
         updateDateTime();
-        setInterval(updateDateTime, 60000); // Update every minute
+        setInterval(updateDateTime, 60000);
     }
 
-    // Latest Announcement Fetching for Home Page
-    const latestAnnouncementContainer = document.getElementById('latest-announcement-container');
-    const latestAnnouncementSection = document.getElementById('latest-announcement-section');
+    // --- Latest Announcement ---
+    const latestAnnContainer = document.getElementById('latest-announcement-container');
+    const latestAnnSection = document.getElementById('latest-announcement-section');
 
-    if (latestAnnouncementContainer && latestAnnouncementSection && typeof announcementsRef !== 'undefined') {
+    if (latestAnnContainer && latestAnnSection && typeof announcementsRef !== 'undefined') {
         announcementsRef.orderByChild('createdAt').limitToLast(1).on('value', (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                // snapshot.val() returns an object with keys. With limitToLast(1), it should have one key.
-                const keys = Object.keys(data);
-                const announcement = data[keys[0]];
-                
-                // Truncate content for preview and handle potential HTML/newlines
-                let previewContent = announcement.content;
-                // Simple strip of HTML tags if any (though usually it's just text)
-                previewContent = previewContent.replace(/<[^>]*>?/gm, '');
-                
-                if (previewContent.length > 200) {
-                    previewContent = previewContent.substring(0, 200) + '...';
-                }
+                const announcement = Object.values(data)[0];
+                let preview = announcement.content.replace(/<[^>]*>?/gm, '');
+                if (preview.length > 200) preview = preview.substring(0, 200) + '...';
 
-                latestAnnouncementContainer.innerHTML = `
+                latestAnnContainer.innerHTML = `
                     <div class="announcement-card">
                         <span class="date-badge">${announcement.date}</span>
                         <h4>${announcement.title}</h4>
-                        <p>${previewContent}</p>
+                        <p>${preview}</p>
                         <a href="announcements/announcements.html">Read Full Announcement <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
                     </div>
                 `;
-                latestAnnouncementSection.style.display = 'block';
-            } else {
-                latestAnnouncementSection.style.display = 'none';
+                latestAnnSection.style.display = 'block';
             }
-        }, (error) => {
-            console.error("Error fetching latest announcement:", error);
-            latestAnnouncementSection.style.display = 'none';
         });
     }
 });

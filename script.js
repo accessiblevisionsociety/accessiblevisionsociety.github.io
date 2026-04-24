@@ -14,12 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.style.display = "none";
             overlay.classList.remove('active');
             navBtn.setAttribute('aria-expanded', "false");
+            // Change aria-label to indicate the button now opens the menu
+            navBtn.setAttribute('aria-label', 'Open navigation drawer');
             navBtn.innerHTML = '☰';
             document.body.style.overflow = '';
         } else {
             navMenu.style.display = "flex";
             overlay.classList.add('active');
             navBtn.setAttribute('aria-expanded', "true");
+            // Change aria-label to indicate the button now closes the menu
+            navBtn.setAttribute('aria-label', 'Close navigation drawer');
             navBtn.innerHTML = '✕';
             document.body.style.overflow = 'hidden';
             const firstLink = navMenu.querySelector('a');
@@ -34,6 +38,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Escape' && window.getComputedStyle(navMenu).display === "flex") toggleMenu();
         });
     }
+
+    // Close navigation drawer when a link is clicked
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.getComputedStyle(navMenu).display === "flex") {
+                toggleMenu();
+            }
+        });
+    });
 
     // --- Dark Mode Logic ---
     const themeToggle = document.getElementById('themeToggle');

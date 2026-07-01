@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Accessible Vision Society</title>
+    <meta name="description" content="Accessible Vision Society (AVS) provides technology training and academic support for visually impaired individuals, promoting independence through inclusive education.">
+    <meta name="keywords" content="Accessible Vision Society, AVS, visually impaired education, technology training for blind, accessibility, screen reader training, inclusive education, digital literacy">
+    <meta name="author" content="Accessible Vision Society">
+    <link rel="canonical" href="https://www.accessiblevisionsociety.org.in/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.accessiblevisionsociety.org.in/">
+    <meta property="og:title" content="Accessible Vision Society - Empowering Through Accessibility">
+    <meta property="og:description" content="Join Accessible Vision Society for technology training and academic support tailored for the visually impaired.">
+    <meta property="og:image" content="https://www.accessiblevisionsociety.org.in/images/logo.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.accessiblevisionsociety.org.in/">
+    <meta property="twitter:title" content="Accessible Vision Society - Empowering Through Accessibility">
+    <meta property="twitter:description" content="Join Accessible Vision Society for technology training and academic support tailored for the visually impaired.">
+    <meta property="twitter:image" content="https://www.accessiblevisionsociety.org.in/images/logo.jpg">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "Accessible Vision Society",
+      "url": "https://www.accessiblevisionsociety.org.in/",
+      "logo": "https://www.accessiblevisionsociety.org.in/images/logo.jpg",
+      "sameAs": [
+        "https://youtube.com/@accessiblevisionsociety",
+        "https://whatsapp.com/channel/0029Vaeb20wHQbRyMHnKW61e"
+      ],
+      "description": "Accessible Vision Society (AVS) provides technology training and academic support for visually impaired individuals, promoting independence through inclusive education.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-6397752839",
+        "contactType": "customer service",
+        "email": "accessiblevisionsociety@gmail.com"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to main content</a>
+    <header>
+        <div id="theme-announcer" class="sr-only" aria-live="polite"></div>
+        <button id="navBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+        <button id="themeToggle" aria-label="Toggle dark mode" title="Toggle between dark and light mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <nav id="navMenu" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="announcements/announcements.html">Announcements</a></li>
+                <li><a href="menu/about.html">About Us</a></li>
+                <li><a href="menu/contact.html">Contact Us</a></li>
+                <li><a href="menu/join.html">Join Us</a></li>
+                <li><a href="menu/donate_us.html">Donate Us</a></li>
+                <li><a href="menu/privacy.html">Privacy Policy</a></li>
+                <li><a href="menu/terms.html">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <img src="images/logo.jpg" alt="Accessible Vision Society Logo" class="header-logo">
+        <h1>Accessible Vision Society</h1>
+        <p id="tagline"><q>Vision Through Accessibility</q></p>
+        <div class="greetingBox">
+            <p id="greeting"></p>
+            <p id="date"></p>
+            <p id="time"></p>
+        </div>
+    </header>
+    <main id="main-content">
+        <!-- Section 1: Hero -->
+        <section class="hero">
+            <h2>Helping People Succeed through Accessibility</h2>
+            <p>We provide technology training and support to help everyone access information, education, and job opportunities, regardless of their visual abilities.</p>
+            <div class="cta-buttons">
+                <a href="courses.html" class="btn-primary">View Our Courses</a>
+                <a href="menu/donate_us.html" class="btn-secondary">Support Our Mission</a>
+            </div>
+        </section>
+
+        <!-- Latest Announcement Section -->
+        <section id="latest-announcement-section" style="display: none; margin-bottom: 4rem;">
+            <h3>Latest Announcement</h3>
+            <div id="latest-announcement-container">
+                <!-- Latest announcement will be injected here -->
+            </div>
+        </section>
+
+        <!-- Section 2: Impact Stats -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">500+ </span>
+                <span class="stat-label">Students Trained | </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">10+ </span>
+                <span class="stat-label">Special Courses | </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">4+ </span>
+                <span class="stat-label">Years of Service | </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100+ </span>
+                <span class="stat-label">Volunteers | </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100% </span>
+                <span class="stat-label">Free Support</span>
+            </div>
+        </section>
+
+        <!-- Section 3: Core Pillars -->
+        <section class="services">
+            <h3>Our Main Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h4>Technology Training</h4>
+                    <p>Learn to use computers and mobile phones with screen readers and other helpful tools.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h4>Academic Support</h4>
+                    <p>We help students prepare for school and job exams with specialized study materials.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h4>Accessibility Help</h4>
+                    <p>We work to make the digital world easier for everyone to use and understand.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Why Choose Us -->
+        <section class="why-choose-us">
+            <h3>Why Join Us?</h3>
+            <div class="why-us-grid">
+                <div class="why-card">
+                    <h4>Expert Teachers</h4>
+                    <p>Our instructors have deep experience and understand the unique needs of our students.</p>
+                </div>
+                <div class="why-card">
+                    <h4>Modern Methods</h4>
+                    <p>We use the latest technology and teaching styles to make learning simple and effective.</p>
+                </div>
+                <div class="why-card">
+                    <h4>Strong Community</h4>
+                    <p>Join a supportive group where people help each other grow and learn every day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Testimonials -->
+        <section class="testimonials">
+            <h3>Words from Our Students</h3>
+            <div class="testimonials-list">
+                <div class="testimonial-item">
+                    <blockquote>
+                        <p>My experience with Accessible Vision Society has been truly life-changing. I attend History, Political Science, and English classes where teachers explain everything with great clarity and patience.</p>
+                        <p>The organization ensures every student receives equal attention and opportunities to participate in programs and competitions. This platform has made my educational journey stronger and more confident. Heartfelt thanks to the entire team.</p>
+                        <cite>— Himani Kushvaha</cite>
+                    </blockquote>
+                </div>
+
+                <div class="testimonial-item">
+                    <blockquote>
+                        <p>Connected since 2021, I've found this organization to be deeply inspiring. The dedicated teachers provide quality education in subjects like History, Hindi, English, and Mathematics, all completely free.</p>
+                        <p>Beyond academics, they help us develop essential life skills like leadership and communication. This society has given me direction, confidence, and a sense of belonging. It is truly one of the best platforms for visually impaired students.</p>
+                        <cite>— Kajal Rathour</cite>
+                    </blockquote>
+                </div>
+
+                <div class="testimonial-item">
+                    <blockquote>
+                        <p>Being a part of Accessible Vision Society makes me very happy. Regularly attending these classes has been a wonderful experience that supports my learning in a meaningful way.</p>
+                        <p>I feel more confident and self-reliant, which motivates me to keep growing. They provide quality education and equal attention to all students, helping us learn many new things every day.</p>
+                        <cite>— Juhi Kumari</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Final CTA -->
+        <section class="final-cta">
+            <h2>Join Our Community Today</h2>
+            <p>Whether you want to learn new skills or support our mission, we are happy to have you as a part of Accessible Vision Society.</p>
+            <div class="cta-buttons">
+                <a href="menu/join.html" class="btn-primary">Join as a Student</a>
+                <a href="menu/donate_us.html" class="btn-secondary">Support Us</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h3>Quick Links</h3>
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="announcements/announcements.html">Announcements</a></li>
+                    <li><a href="menu/about.html">About Us</a></li>
+                    <li><a href="menu/contact.html">Contact Us</a></li>
+                    <li><a href="menu/privacy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer-about">
+            <p>Empowering visually impaired individuals through technology and education. <a href="menu/donate_us.html" class="donate-link">Support our mission by donating.</a></p>
+        </div>
+
+        <div class="footer-social">
+            <h4>Connect with us</h4>
+            <div class="social-links">
+                <a href="https://youtube.com/@accessiblevisionsociety" target="_blank" class="social-icon youtube" aria-label="YouTube Channel">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://whatsapp.com/channel/0029Vaeb20wHQbRyMHnKW61e" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp Channel">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <p class="developer-credit">Developed and maintained by <strong>Pawan Kumar</strong></p>
+        <p class="copyright">© 2026–<script>document.write(new Date().getFullYear());</script> Accessible Vision Society. All rights reserved.<br>Designed with accessibility and inclusion in mind.</p>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script src="firebase.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
